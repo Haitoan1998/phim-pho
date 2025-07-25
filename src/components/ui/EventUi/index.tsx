@@ -1,6 +1,6 @@
 import React from "react";
 
-const CardEvent = () => {
+const index = () => {
   return (
     <div className="my-16 bg-[#fedaa8] h-[350px] relative overflow-hidden rounded-lg">
       <div>
@@ -17,4 +17,4 @@ const CardEvent = () => {
   );
 };
 
-export default CardEvent;
+export default index;
