@@ -1,0 +1,12 @@
+.banner-gradient::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  background-image: url(/dotted.png);
+  background-repeat: repeat;
+  opacity: 0.2;
+  z-index: 1;
+}

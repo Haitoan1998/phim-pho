@@ -1,0 +1,10 @@
+.menuHeader {
+  li {
+    &::after {
+      content: none !important;
+    }
+    &.li {
+      
+    }
+  }
+}
