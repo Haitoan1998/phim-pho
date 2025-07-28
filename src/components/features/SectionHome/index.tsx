@@ -19,7 +19,7 @@ const index = () => {
               <Image width={138} height={50} className="object-contain max-w-full" preview={false} src="/logoBranch.png" />
             </a>
             <h2 className="text-center text-[2em] font-bold text-white">Xem Phim Miễn Phí Cực Nhanh, Chất Lượng Cao Và Cập Nhật Liên Tục</h2>
-            <button onClick={navigateHome} className="cursor-pointer w-2xs flex justify-center gap-4 items-center py-4 px-8 text-black font-medium rounded-4xl" style={{ background: "linear-gradient(39deg, rgb(254, 207, 89), rgb(255, 241, 204))" }}>
+            <button onClick={navigateHome} className="hover:shadow-[0_1px_15px_rgb(254,207,89)] transition-all duration-300 cursor-pointer w-2xs flex justify-center gap-4 items-center py-4 px-8 text-black font-medium rounded-4xl" style={{ background: "linear-gradient(39deg, rgb(254, 207, 89), rgb(255, 241, 204))" }}>
               <div className="font-bold text-2xl text-nowrap">Xem Ngay</div>
               <FontAwesomeIcon icon={faArrowRight} className="text-sm w-6 h-6" />
             </button>

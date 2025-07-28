@@ -13,6 +13,8 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
     const storedTheme = localStorage.getItem("themeMode") as "light" | "dark";
     if (storedTheme) {
       setThemeMode(storedTheme);
+    } else {
+      setThemeMode("light");
     }
   }, []);
   console.log(themeMode);
@@ -59,7 +61,7 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
     () => ({ antdTheme, themeMode, toggleTheme }),
     [antdTheme, themeMode, toggleTheme]
   );
-
+  console.log(contextValue)
   return (
     <ThemeContext.Provider value={contextValue}>
       <ConfigProvider locale={frFR} theme={antdTheme}>
