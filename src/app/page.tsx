@@ -1,8 +1,9 @@
-import BannerHome from "@/components/features/bannerHome/BannerHome";
+import SectionHome from "@/components/features/SectionHome";
 
 export default function Home() {
   return (
     <>
+      <SectionHome />
     </>
   );
 }

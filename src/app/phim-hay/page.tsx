@@ -1,4 +1,4 @@
-import BannerHome from "@/components/features/bannerHome/BannerHome";
+import BannerHome from "@/components/features/BannerHome";
 
 export default function page() {
   return (

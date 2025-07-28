@@ -6,12 +6,15 @@ import styles from "./HeaderLayout.module.scss";
 import React from "react";
 import { useTheme } from "@/context/ThemeProvider";
 import { SearchOutlined, UserOutlined } from "@ant-design/icons";
+import { usePathname } from "next/navigation";
 
 const { Header } = Layout;
 const { Title, Text } = Typography;
 
 const HeaderLayout = () => {
   const { antdTheme, themeMode }: any = useTheme();
+  const pathname = usePathname()
+  if(pathname === '/') return null;
   return (
     <Header className="fixed top-0 z-20 w-full flex items-center !h-auto justify-between">
       <Row className="w-full" gutter={[16, 16]}>
