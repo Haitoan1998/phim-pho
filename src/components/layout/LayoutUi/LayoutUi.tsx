@@ -17,23 +17,21 @@ const LayoutUi = ({ children, className }: { children: React.ReactNode; classNam
   const { antdTheme, themeMode }: any = useTheme();
   const pathname = usePathname();
   return (
-    <>
-      <AntdRegistry>
-        <HeaderLayout />
-        <div
-          style={{
-            backgroundColor: pathname === "/" ? "transparent" : antdTheme.token.colorBgBase,
-            color: antdTheme.token.colorTextBase,
-          }}
-          className={`${className}`}
-        >
-          <Suspense>
-            <Content style={contentStyle}>{!themeMode ? <LoadingUi/>  : children}</Content>
-          </Suspense>
-        </div>
-        <FooterLayout />
-      </AntdRegistry>
-    </>
+    <AntdRegistry>
+      <HeaderLayout />
+      <div
+        style={{
+          backgroundColor: pathname === "/" ? "transparent" : antdTheme.token.colorBgBase,
+          color: antdTheme.token.colorTextBase,
+        }}
+        className={`${className}`}
+      >
+        <Suspense>
+          <Content style={contentStyle}>{children}</Content>
+        </Suspense>
+      </div>
+      <FooterLayout />
+    </AntdRegistry>
   );
 };
 

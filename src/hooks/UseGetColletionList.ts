@@ -1,5 +1,6 @@
-import { getHomeTopic } from "@/lib/api/productService";
-import React, { useEffect, useState } from "react";
+"use client"
+import { getCollectionFilm } from "@/lib/api/productService";
+import { useEffect, useState } from "react";
 const gradients = [
   "bg-gradient-to-br from-[#fbc2eb] to-[#a6c1ee]", // Hồng phấn đến xanh nhạt
   "bg-gradient-to-br from-[#fddb92] to-[#d1fdff]", // Vàng nhạt đến xanh baby
@@ -13,24 +14,23 @@ const gradients = [
   "bg-gradient-to-br from-[#c2ffd8] to-[#465efb]", // Xanh mint đến xanh cobalt
 ];
 
-export const UseGetTopicsHome = () => {
-  const [topics, setTopics] = useState({ items: [], more: 0 });
+export const UseGetColletionList = (param: { page: number; limit: number }) => {
+  const [data, setData] = useState<any[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<any>(null);
   useEffect(() => {
     const fetchTopics = async () => {
       try {
         setLoading(true);
-        const response = await getHomeTopic(); // Adjust the API endpoint as needed
+        const response = await getCollectionFilm(param); // Adjust the API endpoint as needed
         if (!response.status) {
           throw new Error("Network response was not ok");
         }
-        const dataWithGradients = response.result.items.map((item: any) => ({
+        const dataWithGradients = response.result.collections.map((item: any) => ({
           ...item,
           gradient: gradients[Math.floor(Math.random() * gradients.length)],
         }));
-        response.result.items = dataWithGradients;
-        setTopics(response.result);
+        setData(dataWithGradients);
       } catch (err) {
         setError(err);
       } finally {
@@ -40,6 +40,6 @@ export const UseGetTopicsHome = () => {
 
     fetchTopics();
   }, []);
-  console.log(topics);
-  return { topics, loading, error };
+  console.log(data)
+  return { collections: data, loading, error };
 };
