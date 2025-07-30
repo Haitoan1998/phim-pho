@@ -11,11 +11,10 @@ import { formatMinutesToHours } from "@/lib/helpers/time";
 import { Carousel } from "antd";
 import CardTopicUi from "@/components/ui/CardTopicUi";
 import { UseGetTopicsHome } from "@/hooks/UseGetTopicsHome";
+import { convertStaticImage } from "@/lib/helpers/function";
 
 export default function BannerHome() {
   const { antdTheme }: any = useTheme();
-  const { topics } = UseGetTopicsHome();
-  console.log(topics);
   const [filmHot, setFilmHot] = useState<any[]>([]);
   const [currentMovie, setCurrentMovie] = useState<any>(null);
   const [currentMovieIndex, setCurrentMovieIndex] = useState(0);
@@ -48,15 +47,15 @@ export default function BannerHome() {
     });
   }, []);
   return (
-    <main className="min-h-screen bg-gray-900 text-white">
-      <div className="w-full overflow-hidden">
+    <section className="bg-gray-900 text-white">
+      <div className="w-full overflow-hidden relative">
         <div className={`banner-gradient absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0.2)_30%,rgba(0,0,0,0.8)_100%)] z-10`} />
         <div className="absolute inset-0 from-black/80 via-transparent to-black/80 z-10" />
         <div className="relative">
           <Carousel dots={false}>
             {filmHot.map((movie, index) => (
               <div key={movie._id} className={`relative w-full h-[80vh] ${index === currentMovieIndex ? "scale-105" : ""} transition-all duration-100 ease-in-out transform ${isSliding ? "opacity-0 translate-x-[50px]" : "opacity-100 translate-x-0"}`} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-                <Image src={process.env.NEXT_PUBLIC_STATIC_URL + currentMovie?.images?.backdrops[0].path.split("/").pop()} alt={movie.title} fill className="object-cover" />
+                <Image src={convertStaticImage(currentMovie?.images?.backdrops[0].path)} alt={movie.title} fill className="object-cover" />
               </div>
             ))}
           </Carousel>
@@ -105,16 +104,13 @@ export default function BannerHome() {
           <div className="flex gap-2 backdrop-blur-sm">
             {filmHot.map((movie, index) => (
               <div key={movie._id} className={`w-16 h-10 relative overflow-hidden border-[2px] rounded-[0.5rem] transition cursor-pointer ${index === currentMovieIndex ? "border-white scale-105" : "border-transparent hover:border-white"}`} onClick={() => handleMovieChange(index)}>
-                <Image src={process.env.NEXT_PUBLIC_STATIC_URL + movie?.images?.backdrops[movie?.images?.backdrops?.length - 1].path.split("/").pop()} alt={movie.title} fill className="object-cover" />
+                <Image src={convertStaticImage(movie?.images?.backdrops[movie?.images?.backdrops?.length - 1].path)} alt={movie.title} fill className="object-cover" />
                 <div className={`absolute inset-0 bg-black/50 transition ${index === currentMovieIndex ? "opacity-0" : "opacity-50"}`} />
               </div>
             ))}
           </div>
         </div>
-        <div className="absolute -bottom-8 left-0 z-30 w-full px-8">
-          <CardTopicUi data={topics?.items} more={topics?.more} title="Bạn đang quan tâm gì?" />
-        </div>
       </div>
-    </main>
+    </section>
   );
 }

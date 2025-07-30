@@ -1,9 +1,9 @@
-import SectionHome from "@/components/features/SectionHome";
+import IntroducingHome from "@/components/features/IntroducingHome";
 
 export default function Home() {
   return (
     <>
-      <SectionHome />
+      <IntroducingHome />
     </>
   );
 }
