@@ -41,3 +41,16 @@ export const getCollectionFilm = async (params: { page: number; limit: number })
     throw error;
   }
 };
+export const getTopComment = async () => {
+  try {
+    const response = await axiosInstance.get("/api/comment/topComments");
+    if (response.status === 200) {
+      return response.data;
+    } else {
+      throw new Error("Failed to fetch homepage topics");
+    }
+  } catch (error) {
+    console.error("Error fetching homepage topics:", error);
+    throw error;
+  }
+};

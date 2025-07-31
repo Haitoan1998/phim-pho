@@ -40,6 +40,5 @@ export const UseGetColletionList = (param: { page: number; limit: number }) => {
 
     fetchTopics();
   }, []);
-  console.log(data)
   return { collections: data, loading, error };
 };

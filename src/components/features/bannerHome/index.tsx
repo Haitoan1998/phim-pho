@@ -61,7 +61,7 @@ export default function BannerHome() {
           </Carousel>
           <div className="absolute bottom-[-50px] w-full h-[45%] z-0" style={{ background: "linear-gradient(180deg, rgba(8,39,92,0) 0%, #101828 65%)" }}></div>
         </div>
-        <div className={`absolute bg-transparent bottom-1/5 left-0 z-20 p-8 w-full transition-all duration-100 ease-in-out transform ${isSliding ? "opacity-0 translate-x-[-50px]" : "opacity-100 translate-x-0"}`}>
+        <div className={`absolute bg-transparent bottom-[10%] left-0 z-20 p-8 w-full transition-all duration-100 ease-in-out transform ${isSliding ? "opacity-0 translate-x-[-50px]" : "opacity-100 translate-x-0"}`}>
           <div>{currentMovie?.images?.titles.length > 0 ? <Image src={process.env.NEXT_PUBLIC_STATIC_URL + currentMovie.images.titles[0].path.split("/").pop()} alt={currentMovie?.title} width={500} height={150} className="object-cover" /> : <h1 className="text-5xl text-left font-bold mb-4">{currentMovie?.title}</h1>}</div>
           <div className="text-left text-base py-5 text-[#f0d25c]">{currentMovie?.english_title}</div>
           <div className="flex items-center gap-4 mb-4">
@@ -75,7 +75,7 @@ export default function BannerHome() {
             <span className="border border-white px-2 py-1 rounded">{currentMovie?.year}</span>
             {currentMovie?.latest_season ? <></> : <span className="border border-white px-2 py-1 rounded">{formatMinutesToHours(currentMovie?.runtime)}</span>}
             {currentMovie?.latest_season ? <span className="border border-white px-2 py-1 rounded">Phần {currentMovie?.latest_season}</span> : <></>}
-            {currentMovie?.latest_season ? <span className="border border-white px-2 py-1 rounded">Tập {currentMovie?.latest_episode["4"]}</span> : <></>}
+            {currentMovie?.latest_season ? <span className="border border-white px-2 py-1 rounded">Tập {currentMovie?.latest_episode["1"] || currentMovie?.latest_episode["4"]}</span> : <></>}
           </div>
           <div className="flex items-center gap-4 mb-4">
             {currentMovie?.genres.length > 0 &&
@@ -100,7 +100,7 @@ export default function BannerHome() {
             </div>
           </div>
         </div>
-        <div className="absolute bottom-1/4 right-24 z-30">
+        <div className="absolute bottom-1/5 right-24 z-30">
           <div className="flex gap-2 backdrop-blur-sm">
             {filmHot.map((movie, index) => (
               <div key={movie._id} className={`w-16 h-10 relative overflow-hidden border-[2px] rounded-[0.5rem] transition cursor-pointer ${index === currentMovieIndex ? "border-white scale-105" : "border-transparent hover:border-white"}`} onClick={() => handleMovieChange(index)}>
@@ -110,6 +110,7 @@ export default function BannerHome() {
             ))}
           </div>
         </div>
+        
       </div>
     </section>
   );

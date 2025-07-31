@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
+  --background: #191b24;
   --foreground: #171717;
 }
 
@@ -14,12 +14,12 @@
   --animate-logo-load: logo_load 1.5S forwards;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
-}
+} */
 @keyframes logo_load {
   0% {
     transform: scale(1.05);
