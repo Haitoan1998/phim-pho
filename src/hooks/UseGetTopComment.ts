@@ -7,7 +7,7 @@ export const UseGetTopComment = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<any>(null);
   useEffect(() => {
-    const fetchTopics = async () => {
+    const fetchTopComment = async () => {
       try {
         setLoading(true);
         const response = await getTopComment(); // Adjust the API endpoint as needed
@@ -22,7 +22,7 @@ export const UseGetTopComment = () => {
       }
     };
 
-    fetchTopics();
+    fetchTopComment();
   }, []);
   return { comments, loading, error };
 };

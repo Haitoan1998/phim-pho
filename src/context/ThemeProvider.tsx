@@ -17,7 +17,6 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
       setThemeMode("light");
     }
   }, []);
-  console.log(themeMode);
   const toggleTheme = (mode: "dark" | "light" | "") => {
     setThemeMode(mode);
     localStorage.setItem("themeMode", mode);
@@ -61,7 +60,6 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
     () => ({ antdTheme, themeMode, toggleTheme }),
     [antdTheme, themeMode, toggleTheme]
   );
-  console.log(contextValue)
   return (
     <ThemeContext.Provider value={contextValue}>
       <ConfigProvider locale={frFR} theme={antdTheme}>

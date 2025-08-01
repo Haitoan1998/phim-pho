@@ -21,7 +21,7 @@ export interface Props {
   genres: any[];
 }
 
-const CardItemCollectionUi = ({ ...props }: Props) => {
+const CardItemTopicFilmUi = ({ ...props }: Props) => {
   const [isHovering, setIsHovering] = useState(false);
   const [position, setPosition] = useState<{
     top: number;
@@ -52,7 +52,9 @@ const CardItemCollectionUi = ({ ...props }: Props) => {
   return (
     <>
       <div className="relative cursor-pointer">
-        <Image className="rounded-lg object-cover min-h-[161px] min-w-[288px] w-full h-full" height={161} width={288} src={convertStaticImage(props?.images?.horizontal_posters[0].path)} alt="" draggable={false} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} />
+        <div className="relative aspect-[16/9] w-full rounded-lg overflow-hidden">
+          <Image className="object-cover" fill src={convertStaticImage(props?.images?.horizontal_posters[0].path)} alt="" draggable={false} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} />
+        </div>
         <div className="absolute bottom-0 left-3 flex text-sm font-bold">
           {props.latest_episode?.["1"] && <div className={`bg-[#5e6070] py-0.5 px-2 ${!props.latest_episode?.["4"] && !props.latest_episode?.["2"] ? "rounded-t-sm" : "rounded-tl-sm"}`}>PĐ. {props.latest_episode?.["1"]}</div>}
           {props.latest_episode?.["2"] && <div className={`bg-[#1667cf] py-0.5 px-2 ${!props.latest_episode?.["4"] && !props.latest_episode?.["1"] ? "rounded-t-sm" : props.latest_episode?.["4"] && !props.latest_episode?.["1"] ? "rounded-tl-sm" : props.latest_episode?.["1"] && !props.latest_episode?.["4"] ? "rounded-tr-sm" : ""}`}>LT. {props.latest_episode?.["2"]}</div>}
@@ -111,7 +113,7 @@ const CardItemCollectionUi = ({ ...props }: Props) => {
             </div>
             <div className="flex items-center gap-1 mb-4 px-3 mt-2">
               {props?.genres.length > 0 &&
-                props.genres.slice(0,4).map((genre: any, index: number) => (
+                props.genres.slice(0, 4).map((genre: any, index: number) => (
                   <div className="flex gap-1 text-white text-[8px]" key={genre._id as string}>
                     <div>{genre.name}</div>
                     {index < props.genres.length - 1 && <div>●</div>}
@@ -125,4 +127,4 @@ const CardItemCollectionUi = ({ ...props }: Props) => {
   );
 };
 
-export default CardItemCollectionUi;
+export default CardItemTopicFilmUi;

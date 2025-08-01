@@ -13,7 +13,6 @@ export interface Props {
 }
 
 const CardTopCommentUi = ({ ...props }: Props) => {
-  console.log(props?.author?.avatar?.path);
   return (
     <div className="relative cursor-pointer p-5 group rounded-lg overflow-hidden">
       <div className="absolute top-0 left-0 right-0 bottom-0 opacity-[0.5] group-hover:opacity-100 [mask-image:linear-gradient(180deg,black_0,transparent_80%)]">
