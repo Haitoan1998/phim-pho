@@ -2,7 +2,7 @@ import { getHomeTopic } from "@/lib/api/productService";
 import { gradients } from "@/lib/constants";
 import React, { useEffect, useState } from "react";
 
-export const UseGetTopicsHome = () => {
+export const useGetTopicsHome = () => {
   const [topics, setTopics] = useState({ items: [], more: 0 });
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<any>(null);

@@ -1,15 +1,15 @@
 "use client";
 import CardItemRankingsUi from "@/components/ui/CardItemRankingsUi";
-import { UseGetRanking } from "@/hooks/UseGetRanking";
 import { faAngleLeft, faAngleRight, faBolt, faClapperboard, faFolderPlus, faHeartCircleCheck } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Swiper, SwiperSlide } from "swiper/react";
 import React from "react";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import CardItemLatestCommentUi from "@/components/ui/CardItemLatestCommentUi";
+import { useGetRanking } from "@/hooks/useGetRanking";
 
 const Rankings = () => {
-  const { mostCommented, mostFavorite, mostPopular, latestComments, loading, error } = UseGetRanking();
+  const { mostCommented, mostFavorite, mostPopular, latestComments, loading, error } = useGetRanking();
   return (
     <div className="border-solid border border-[#ffffff54] border-t-0 rounded-b-2xl grid grid-cols-9">
       <div className="col-span-2 top-comment-wrapper py-6 px-8 gap-8 border-r-1 border-solid border-[#ffffff54]">

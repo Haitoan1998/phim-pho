@@ -7,7 +7,7 @@ type RankingData = {
   mostPopular: any;
   latestComments: any;
 };
-export const UseGetRanking = () => {
+export const useGetRanking = () => {
   const [data, setData] = useState<RankingData>({
     mostCommented: [],
     mostFavorite: [],

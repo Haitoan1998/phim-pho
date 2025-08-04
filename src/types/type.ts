@@ -11,3 +11,13 @@ export enum LayoutCard {
   CARD_HORIZONTAL_COMING = 5,
   CARD_BANNER = 2,
 }
+export const LayoutSwiperOptions = {
+  [LayoutCard.CARD_VERTICAL]: { slidesPerView: 8, spaceBetween: 16 },
+  [LayoutCard.CARD_VERTICAL_CUT]: { slidesPerView: 6, spaceBetween: 16 },
+  [LayoutCard.CARD_HORIZONTAL_WITH_POSTER]: { slidesPerView: 4, spaceBetween: 16 },
+  [LayoutCard.CARD_HORIZONTAL_COMING]: { slidesPerView: 5, spaceBetween: 16 },
+}
+export enum TypeFilm {
+  SIGNLE_MOVIE = 1,
+  SERIES_MOVIE = 2
+}

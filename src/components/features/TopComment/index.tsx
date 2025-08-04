@@ -5,8 +5,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleRight, faAngleLeft, faMedal } from "@fortawesome/free-solid-svg-icons";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
-import { UseGetTopComment } from "@/hooks/UseGetTopComment";
 import CardTopCommentUi from "@/components/ui/CardTopCommentUi";
+import { useGetTopComment } from "@/hooks/useGetTopComment";
 
 const params = {
   page: 1,
@@ -14,7 +14,7 @@ const params = {
 };
 
 const TopComment = () => {
-  const { comments } = UseGetTopComment();
+  const { comments } = useGetTopComment();
   if (!comments?.length) return null;
   return (
     <div className="top-comment-wrapper mt-12 py-6 px-8 gap-8 border border-solid border-[#ffffff54] rounded-t-2xl">

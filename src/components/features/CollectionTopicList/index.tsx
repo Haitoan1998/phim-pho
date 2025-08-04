@@ -1,5 +1,4 @@
 "use client";
-import { UseGetColletionList } from "@/hooks/UseGetColletionList";
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "./CollectionTopicList.scss";
@@ -10,14 +9,10 @@ import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-
-const params = {
-  page: 1,
-  limit: 4,
-};
+import { useGetCollectionList } from "@/hooks/useGetCollectionList";
 
 const CollectionTopicList = () => {
-  const { dataTopicFilm } = UseGetColletionList(params);
+  const { dataTopicFilm,loading} = useGetCollectionList();
   if (!dataTopicFilm?.length) return null;
   return (
     <div className="collection-wrapper mt-12 rounded-2xl p-8 flex flex-col gap-8">

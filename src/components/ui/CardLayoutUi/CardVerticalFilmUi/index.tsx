@@ -27,8 +27,8 @@ const CardVerticalFilmUi = (props: Props) => {
         </div>
       </div>
       <div className="mt-3 text-center">
-        <span className="hover:text-[#FFD875] text-white leading-1.5 text-sm cursor-pointer">{props.title}</span>
-        <p className="font-thin text-xs text-[#aaa] mt-1 cursor-pointer">{props.english_title}</p>
+        <span className="hover:text-[#FFD875] text-white text-sm cursor-pointer line-clamp-1">{props.title}</span>
+        <p className="font-thin text-xs text-[#aaa] mt-1 cursor-pointer line-clamp-1">{props.english_title}</p>
       </div>
     </div>
   );

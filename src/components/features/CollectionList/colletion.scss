@@ -1,0 +1,23 @@
+/* global.css hoặc v-loader.module.css */
+.v-loader {
+  width: 45px;
+  aspect-ratio: 1;
+  --c: no-repeat linear-gradient(#5b5d68 0 0);
+  background: var(--c) 0 50%, var(--c) 50% 50%, var(--c) 100% 50%;
+  background-size: 20% 100%;
+  animation: l1 1s linear infinite;
+  transform: scale(.9);
+  border-radius: 50%;
+}
+
+@keyframes l1 {
+  0% {
+    background-size: 20% 100%;
+  }
+  50% {
+    background-size: 20% 10%;
+  }
+  100% {
+    background-size: 20% 100%;
+  }
+}

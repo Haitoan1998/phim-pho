@@ -3,32 +3,47 @@ import { LayoutCard } from "@/types/type";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 import React from "react";
+import CardVerticalCutFilmUi from "@/components/ui/CardLayoutUi/CardVerticalCutFilmUi.tsx";
+import CardHorizontalWithPoster from "@/components/ui/CardLayoutUi/CardHorizontalWithPoster";
+import CardHorizontalComing from "@/components/ui/CardLayoutUi/CardHorizontalComing";
 interface Props {
   style: LayoutCard;
   data: any;
+  layoutSwiper: {
+    slidesPerView: number;
+    spaceBetween: number;
+  }
 }
 const RenderCollection = (props: Props) => {
-  console.log(props);
-  const renderLayoutCollection = (style: LayoutCard, movies:any) => {
+  const renderLayoutCollection = (style: LayoutCard, movies:any, index?:number) => {
     if (style === LayoutCard.CARD_VERTICAL) {
       return <CardVerticalFilmUi {...movies} />;
     }
+    if (style === LayoutCard.CARD_VERTICAL_CUT) {
+      return <CardVerticalCutFilmUi {...movies} index={index} />;
+    }
+    if (style === LayoutCard.CARD_HORIZONTAL_WITH_POSTER) {
+      return <CardHorizontalWithPoster {...movies} />;
+    }
+    if (style === LayoutCard.CARD_HORIZONTAL_COMING) {
+      return <CardHorizontalComing {...movies} />;
+    }
     return null;
   };
-  if (!props.data || !props.data.movies.length) return null;
+  if (!props.data?.movies?.length) return null;
   return (
     <Swiper
       modules={[Navigation, Pagination]}
-      slidesPerView={8}
-      spaceBetween={16}
+      slidesPerView={props.layoutSwiper.slidesPerView}
+      spaceBetween={props.layoutSwiper.spaceBetween}
       navigation={{
         nextEl: `.swiper-button-next`,
         prevEl: `.swiper-button-prev`,
       }}
       className="w-full"
     >
-      {props.data?.movies?.map((movie: any) => (
-        <SwiperSlide>{renderLayoutCollection(props.style, movie)}</SwiperSlide>
+      {props.data?.movies?.map((movie: any, index: number) => (
+        <SwiperSlide>{renderLayoutCollection(props.style, movie, index)}</SwiperSlide>
       ))}
     </Swiper>
   );

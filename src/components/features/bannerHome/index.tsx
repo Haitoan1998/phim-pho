@@ -10,7 +10,7 @@ import { getHomeFilmHot, getHomeTopic } from "@/lib/api/productService";
 import { formatMinutesToHours } from "@/lib/helpers/time";
 import { Carousel } from "antd";
 import CardTopicUi from "@/components/ui/CardTopicUi";
-import { UseGetTopicsHome } from "@/hooks/UseGetTopicsHome";
+import { useGetTopicsHome } from "@/hooks/useGetTopicsHome";
 import { convertStaticImage } from "@/lib/helpers/function";
 
 export default function BannerHome() {

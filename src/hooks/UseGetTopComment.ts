@@ -2,7 +2,7 @@
 import { getTopComment } from "@/lib/api/productService";
 import React, { useEffect, useState } from "react";
 
-export const UseGetTopComment = () => {
+export const useGetTopComment = () => {
   const [comments, setComments] = useState([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<any>(null);

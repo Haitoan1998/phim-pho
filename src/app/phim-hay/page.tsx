@@ -6,10 +6,10 @@ import Rankings from "@/components/features/Rankings";
 import TopComment from "@/components/features/TopComment";
 import CardTopicUi from "@/components/ui/CardTopicUi";
 import LoadingWelcome from "@/components/ui/LoadingWelcome";
-import { UseGetTopicsHome } from "@/hooks/UseGetTopicsHome";
+import { useGetTopicsHome } from "@/hooks/useGetTopicsHome";
 
 export default function page() {
-  const { topics } = UseGetTopicsHome();
+  const { topics } = useGetTopicsHome();
   return (
     <>
       <section>
